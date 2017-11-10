@@ -3,6 +3,10 @@
 
 #include <QWidget>
 #include <QClipboard>
+#include <QMessageBox>
+#include <QDebug>
+
+#include "caesarcipher.h"
 
 namespace Ui {
 class Widget;
@@ -19,8 +23,12 @@ public:
 private:
     Ui::Widget *ui;
 
+    void showMessage(QString title,QString content);
+
 private slots:
     void copyText();
+    void encrypt();
+    void decrypt();
 };
 
 #endif // WIDGET_H
