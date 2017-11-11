@@ -26,11 +26,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         widget.cpp \
-    caesarcipher.cpp
+    caesarcipher.cpp \
+    playfaircipher.cpp \
+    hillcipher.cpp
 
 HEADERS += \
         widget.h \
-    caesarcipher.h
+    caesarcipher.h \
+    playfaircipher.h \
+    hillcipher.h
 
 FORMS += \
         widget.ui

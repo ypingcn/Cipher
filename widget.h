@@ -7,6 +7,7 @@
 #include <QDebug>
 
 #include "caesarcipher.h"
+#include "playfaircipher.h"
 
 namespace Ui {
 class Widget;
@@ -25,7 +26,11 @@ private:
 
     void showMessage(QString title,QString content);
 
+    CaesarCipher c;
+    PlayfairCipher p;
+
 private slots:
+
     void copyText();
     void encrypt();
     void decrypt();

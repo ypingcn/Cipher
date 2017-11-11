@@ -45,12 +45,22 @@ void Widget::encrypt()
 
     if(ui->rbtnCaesar->isChecked())
     {
-        CaesarCipher c;
         for(auto i : sections)
         {
             std::string result;
             c.encrypt(QString(i).toStdString(),result);
             ui->edtCipherText->append(QString::fromStdString(result));
+        }
+    }
+    else if(ui->rbtnPlayfair->isChecked())
+    {
+        p.setWord(ui->edtPlayfair->text().toStdString());
+
+        for(auto i : sections)
+        {
+            std::string result;
+            p.encrypt(QString(i).toStdString(),result);
+            ui->edtCipherText->append((QString::fromStdString(result)));
         }
     }
 }
@@ -66,11 +76,19 @@ void Widget::decrypt()
 
     if(ui->rbtnCaesar->isChecked())
     {
-        CaesarCipher c;
         for(auto i : sections)
         {
             std::string result;
             c.decrypt(QString(i).toStdString(),result);
+            ui->edtPlainText->append(QString::fromStdString(result));
+        }
+    }
+    else if(ui->rbtnPlayfair->isChecked())
+    {
+        for(auto i : sections)
+        {
+            std::string result;
+            p.decrypt(QString(i).toStdString(),result);
             ui->edtPlainText->append(QString::fromStdString(result));
         }
     }
