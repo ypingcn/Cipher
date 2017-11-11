@@ -11,9 +11,18 @@ bool CaesarCipher::encrypt(std::string plain, std::string& cipher)
 
     for(int i = 0;i<len;i++)
     {
-        int num = std::toupper(plain[i]) - 'A';
-        int nxt = (num+offset+26) % 26;
-        result.append(alphabet[nxt]);
+        if(isalpha(plain[i]))
+        {
+            int num = std::toupper(plain[i]) - 'A';
+            int nxt = (num+offset+26) % 26;
+            result.append(alphabet[nxt]);
+        }
+        else
+        {
+            std::string s;
+            s = plain[i];
+            result.append(s);
+        }
     }
 
     cipher = result;
@@ -32,9 +41,18 @@ bool CaesarCipher::decrypt(std::string cipher, std::string& plain)
 
     for(int i = 0;i<len;i++)
     {
-        int num = std::toupper(cipher[i]) - 'A';
-        int nxt = (num-offset+26) % 26;
-        result.append(alphabet[nxt]);
+        if(isalpha(cipher[i]))
+        {
+            int num = std::toupper(cipher[i]) - 'A';
+            int nxt = (num-offset+26) % 26;
+            result.append(alphabet[nxt]);
+        }
+        else
+        {
+            std::string s;
+            s = cipher[i];
+            result.append(s);
+        }
     }
 
     plain = result;
