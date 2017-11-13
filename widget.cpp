@@ -63,6 +63,41 @@ void Widget::encrypt()
             ui->edtCipherText->append((QString::fromStdString(result)));
         }
     }
+    else if(ui->rbtnHill->isChecked())
+    {
+        int k[HillCipher::N][HillCipher::N],cnt = 0;
+        bool ok;
+
+        QString key = ui->edtHill->toPlainText();
+        QStringList keySections = key.split('\n');
+
+        for(QString i : keySections)
+        {
+            QString line = i;
+            QStringList lineKeySections = line.split(' ');
+            for(QString j : lineKeySections)
+            {
+                if(cnt >= HillCipher::N*HillCipher::N)
+                    goto SETKEY;
+                int row = cnt / HillCipher::N,column = cnt % HillCipher::N;
+                k[row][column] = j.toInt(&ok,10);
+                if(ok)
+                    cnt++;
+            }
+        }
+
+SETKEY: if( h.setKey(k) )
+        {
+            for(auto i : sections)
+            {
+                std::string result;
+                h.encrypt(QString(i).toStdString(),result);
+                ui->edtCipherText->append((QString::fromStdString(result)));
+            }
+        }
+        else
+            showMessage("Invaild KEY!","Invaild KEY!");
+    }
 }
 
 void Widget::decrypt()
@@ -91,6 +126,41 @@ void Widget::decrypt()
             p.decrypt(QString(i).toStdString(),result);
             ui->edtPlainText->append(QString::fromStdString(result));
         }
+    }
+    else if(ui->rbtnHill->isChecked())
+    {
+        int k[HillCipher::N][HillCipher::N],cnt = 0;
+        bool ok;
+
+        QString key = ui->edtHill->toPlainText();
+        QStringList keySections = key.split('\n');
+
+        for(QString i : keySections)
+        {
+            QString line = i;
+            QStringList lineKeySections = line.split(' ');
+            for(QString j : lineKeySections)
+            {
+                if(cnt >= HillCipher::N*HillCipher::N)
+                    goto SETKEY;
+                int row = cnt / HillCipher::N,column = cnt % HillCipher::N;
+                k[row][column] = j.toInt(&ok,10);
+                if(ok)
+                    cnt++;
+            }
+        }
+
+SETKEY: if( h.setKey(k) )
+        {
+            for(auto i : sections)
+            {
+                std::string result;
+                h.decrypt(QString(i).toStdString(),result);
+                ui->edtPlainText->append((QString::fromStdString(result)));
+            }
+        }
+        else
+            showMessage("Invaild KEY!","Invaild KEY!");
     }
 }
 

@@ -28,13 +28,15 @@ SOURCES += \
         widget.cpp \
     caesarcipher.cpp \
     playfaircipher.cpp \
-    hillcipher.cpp
+    hillcipher.cpp \
+    matrix.cpp
 
 HEADERS += \
         widget.h \
     caesarcipher.h \
     playfaircipher.h \
-    hillcipher.h
+    hillcipher.h \
+    matrix.h
 
 FORMS += \
         widget.ui

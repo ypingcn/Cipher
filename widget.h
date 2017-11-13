@@ -8,6 +8,7 @@
 
 #include "caesarcipher.h"
 #include "playfaircipher.h"
+#include "hillcipher.h"
 
 namespace Ui {
 class Widget;
@@ -28,6 +29,7 @@ private:
 
     CaesarCipher c;
     PlayfairCipher p;
+    HillCipher h;
 
 private slots:
 
