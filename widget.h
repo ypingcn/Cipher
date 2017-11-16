@@ -4,6 +4,10 @@
 #include <QWidget>
 #include <QClipboard>
 #include <QMessageBox>
+#include <QDialog>
+#include <QGridLayout>
+#include <QPixmap>
+#include <QTextBrowser>
 #include <QDebug>
 
 #include "caesarcipher.h"
@@ -36,6 +40,7 @@ private slots:
     void copyText();
     void encrypt();
     void decrypt();
+    void about();
 };
 
 #endif // WIDGET_H

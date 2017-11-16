@@ -13,6 +13,8 @@ Widget::Widget(QWidget *parent) :
     connect(ui->btnEncrypt,SIGNAL(clicked()),this,SLOT(encrypt()));
     connect(ui->btnDecrypt,SIGNAL(clicked()),this,SLOT(decrypt()));
 
+    connect(ui->btnAbout,SIGNAL(clicked()),this,SLOT(about()));
+
 }
 
 Widget::~Widget()
@@ -34,6 +36,31 @@ void Widget::copyText()
     }
 }
 
+void Widget::about()
+{
+    QDialog * about = new QDialog(this);
+    QGridLayout * aboutLayout = new QGridLayout(about);
+    QPixmap icon(":cipher.png");
+    QLabel * labIco = new QLabel();
+    labIco->setPixmap(icon);
+
+    about->setWindowTitle("About");
+    about->resize(600,300);
+
+    QTextBrowser * content = new QTextBrowser();
+    content->setOpenExternalLinks(true);
+
+    content->append(tr("A Qt-based program for Caesar,Playfair,Hill encryption and decryption."));
+    content->append(tr("<a href=\"https://github.com/ypingcn/Cipher\"> %1 </a>").arg(tr("click to know more.")));
+    content->append(tr("\nThe program is licensed under version 3 of the GNU General Public License."));
+    content->append(tr("Copyright 2017 ypingcn"));
+
+    aboutLayout->addWidget(labIco,0,0,1,1);
+    aboutLayout->addWidget(content,0,1,1,1);
+
+    about->exec();
+
+}
 void Widget::encrypt()
 {
     if( !ui->rbtnCaesar->isChecked() && !ui->rbtnHill->isChecked() && !ui->rbtnPlayfair->isChecked())
