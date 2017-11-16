@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>cipher.png</file>
+        <file>cipher.ico</file>
+    </qresource>
+</RCC>

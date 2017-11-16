@@ -8,8 +8,10 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = encryption
+TARGET = cipher
 TEMPLATE = app
+
+CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -40,3 +42,31 @@ HEADERS += \
 
 FORMS += \
         widget.ui
+
+RESOURCES += \
+    resource/resource.qrc
+
+RC_FILE += resource/main.rc
+
+icons.files = resource/cipher.png
+desktop.files = cipher.desktop
+i18n.files = i18n/*.qm
+
+TRANSLATIONS += i18n/zh-cn.ts
+
+isEmpty(INSTALL_PREFIX) {
+    unix: INSTALL_PREFIX = /usr
+    else: INSTALL_PREFIX = ..
+}
+
+unix: {
+    desktop.path = $$INSTALL_PREFIX/share/applications
+    icons.path = $$INSTALL_PREFIX/share/icons/hicolor/128x128/apps
+    i18n.path = $$INSTALL_PREFIX/bin/cipher/i18n
+    INSTALLS += desktop icons i18n
+}
+
+target.files = cipher
+target.path = $$INSTALL_PREFIX/bin/cipher
+
+INSTALLS += target

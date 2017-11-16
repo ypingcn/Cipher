@@ -1,0 +1,5 @@
+cipher (0.1) unstable; urgency=medium
+
+  * Caesar , Playfair and Hill Ciphers are available in this version
+
+ -- ypingcn <1344632698@qq.com>  Mon, 13 Nov 2017 20:55:00 +0800

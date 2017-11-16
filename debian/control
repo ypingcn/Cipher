@@ -1,0 +1,13 @@
+Source: cipher
+Section: utils
+Priority: optional
+Maintainer: ypingcn <1344632698@qq.com>
+Build-Depends: debhelper (>=9), qt5-qmake, qt5-default, qtbase5-dev
+Standards-Version: 3.9.6
+Homepage: https://github.com/ypingcn/Cipher
+
+Package: cipher
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: cipher
+  A Qt-based program for Caesar\Playfair\Hill encryption and decryption.

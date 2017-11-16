@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=0.1
+Type=Application
+Exec=/usr/bin/cipher/cipher
+Name=Cipher
+Name[zh_CN]=加解密程序
+Comment=Cipher
+Comment[zh_CN]=加解密程序
+Icon=cipher
+Categories=Program;
