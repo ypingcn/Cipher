@@ -8,6 +8,9 @@
 #include <QGridLayout>
 #include <QPixmap>
 #include <QTextBrowser>
+#include <QFileDialog>
+#include <QFile>
+#include <QTextStream>
 #include <QDebug>
 
 #include "caesarcipher.h"
@@ -38,6 +41,7 @@ private:
 private slots:
 
     void copyText();
+    void loadFile();
     void encrypt();
     void decrypt();
     void about();

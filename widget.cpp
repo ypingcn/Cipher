@@ -15,6 +15,7 @@ Widget::Widget(QWidget *parent) :
 
     connect(ui->btnAbout,SIGNAL(clicked()),this,SLOT(about()));
 
+    connect(ui->btnLoadFile,SIGNAL(clicked()),this,SLOT(loadFile()));
 }
 
 Widget::~Widget()
@@ -36,6 +37,24 @@ void Widget::copyText()
     }
 }
 
+void Widget::loadFile()
+{
+    QString path = QFileDialog::getOpenFileName(this, tr("Choose File"), ".", tr("All File(*.*)"));
+    if(!path.isEmpty())
+    {
+        QFile file(path);
+        if(!file.open(QIODevice::ReadOnly |QFile::Text))
+        {
+            QMessageBox::warning(this,tr("Error"),tr("read file error:%1").arg(file.errorString()));
+            return;
+        }
+        QTextStream in(&file);
+        QApplication::setOverrideCursor(Qt::WaitCursor);
+        ui->edtPlainText->clear();
+        ui->edtPlainText->setPlainText(in.readAll());
+        QApplication::restoreOverrideCursor();
+    }
+}
 void Widget::about()
 {
     QDialog * about = new QDialog(this);
