@@ -43,7 +43,7 @@ bool CaesarCipher::decrypt(std::string cipher, std::string& plain)
     {
         if(isalpha(cipher[i]))
         {
-            int num = std::toupper(cipher[i]) - 'A';
+            int num = toupper(cipher[i]) - 'A';
             int nxt = (num-offset+26) % 26;
             result.append(alphabet[nxt]);
         }

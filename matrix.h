@@ -19,17 +19,6 @@ public:
 
     bool inverse(Matrix& result);
 
-    void debug()
-    {
-        for(int i = 0;i<N;i++)
-        {
-            for(int j = 0;j<N;j++)
-            {
-                qDebug()<<"$$$  "<<QString::number(value[i][j]);
-            }
-        }
-    }
-
 private:
 
     int value[N][N];

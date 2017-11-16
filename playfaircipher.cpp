@@ -135,14 +135,6 @@ bool PlayfairCipher::decrypt(std::string cipher, std::string& plain)
         }
     }
 
-//    for(int i=0;i<v1.size();i++)
-//    {
-//        qDebug()<<QString::number(v1[i].first)<<QString::number(v1[i].second);
-//        qDebug()<<QString::fromStdString(alphabet[v1[i].first])<<QString::fromStdString(alphabet[v1[i].second]);
-//    }
-
-//    qDebug()<<" --------- ";
-
     for(auto it = v1.begin();it + 1 < v1.end(); it++)
     {
         if(it->first == (it+1)->first && it->second == (it+1)->second && it->second == spk)
@@ -152,7 +144,7 @@ bool PlayfairCipher::decrypt(std::string cipher, std::string& plain)
         }
     }
 
-    for(int i=0;i<v1.size();i++)
+    for(int i=0;i<(int)v1.size();i++)
     {
         int x = v1[i].first, y = v1[i].second;
             result.append(alphabet[x]+alphabet[y]);
