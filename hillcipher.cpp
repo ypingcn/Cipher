@@ -32,7 +32,7 @@ bool HillCipher::encrypt(std::string plain, std::string &cipher)
         int cnt = 0;
         for(int j = 0 ; j<3 && j<int(sub.size());j++)
         {
-            tmp[j] = sub[j] - 'A';
+            tmp[j] = std::toupper(sub[j]) - 'A';
             cnt++;
         }
         while(cnt<3)
@@ -75,7 +75,7 @@ bool HillCipher::decrypt(std::string cipher, std::string &plain)
         int cnt = 0;
         for(int j = 0 ; j<3 && j<int(sub.size());j++)
         {
-            tmp[j] = sub[j] - 'A';
+            tmp[j] = std::toupper(sub[j]) - 'A';
             cnt++;
         }
         while(cnt<3)
