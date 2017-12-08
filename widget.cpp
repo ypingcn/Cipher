@@ -7,6 +7,9 @@ Widget::Widget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->edtPlayfair->setText("ATHENA");
+    ui->edtHill->setText("1 7 3\n2 5 3\n1 2 1");
+
     connect(ui->btnCopyPlainText,SIGNAL(clicked()),this,SLOT(copyText()));
     connect(ui->btnCopyCipherText,SIGNAL(clicked()),this,SLOT(copyText()));
 
