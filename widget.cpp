@@ -86,7 +86,7 @@ void Widget::about()
 void Widget::encrypt()
 {
     if( !ui->rbtnCaesar->isChecked() && !ui->rbtnHill->isChecked() && !ui->rbtnPlayfair->isChecked())
-        showMessage("type error","type error");
+        showMessage(tr("type error"),tr("type error"));
 
     ui->edtCipherText->clear();
     QString str = ui->edtPlainText->toPlainText();
