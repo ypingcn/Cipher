@@ -11,6 +11,7 @@ bool PlayfairCipher::encrypt(std::string plain, std::string& cipher)
 
     int len = plain.size();
 
+    // 每两个字母分一组，非字母略过
     for(int i = 0;i<len; )
     {
         if(!isalpha(plain[i]))
@@ -33,6 +34,7 @@ bool PlayfairCipher::encrypt(std::string plain, std::string& cipher)
         if(num2 == spi || num2 == spj)
             num2 = spi;
 
+        // 两个数字相同则拆分开，中间添加k
         if(num1 == num2)
         {
             v.push_back(std::make_pair(num1,spk));
@@ -44,6 +46,8 @@ bool PlayfairCipher::encrypt(std::string plain, std::string& cipher)
         }
         i+=2;
     }
+
+    // 将数字转换成对应的字母
 
     int vlen = v.size();
     for(int i = 0;i<vlen;i++)
@@ -157,6 +161,7 @@ bool PlayfairCipher::decrypt(std::string cipher, std::string& plain)
 
 void PlayfairCipher::updateMatrix()
 {
+    // 根据选定的单词更新加解密矩阵 I J 视为同一个
     bool yes[26];
     for(int i = 0;i<26;i++)
         yes[i] = false;

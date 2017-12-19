@@ -21,8 +21,8 @@ public:
 
 private:
 
-    std::pair<int,int> getLocation(int alpha);
-    int getAlpha(std::pair<int,int> location);
+    std::pair<int,int> getLocation(int alpha); // 字母的位置，第一个是行，第二个是列
+    int getAlpha(std::pair<int,int> location); // 求某行某列上的字母
 
     const std::vector<std::string> alphabet = {
         "A","B","C","D","E","F","G",

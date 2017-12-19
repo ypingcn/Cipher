@@ -9,6 +9,7 @@ bool CaesarCipher::encrypt(std::string plain, std::string& cipher)
 
     std::string result;
 
+    // 是字母则按偏移量偏移，不是则直接添加
     for(int i = 0;i<len;i++)
     {
         if(isalpha(plain[i]))
@@ -39,6 +40,7 @@ bool CaesarCipher::decrypt(std::string cipher, std::string& plain)
 
     std::string result;
 
+    // 是字母则按偏移量偏移，不是则直接添加
     for(int i = 0;i<len;i++)
     {
         if(isalpha(cipher[i]))

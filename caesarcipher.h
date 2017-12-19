@@ -22,7 +22,7 @@ private:
         "O","P","Q","R","S","T","U",
         "V","W","X","Y","Z"
     };
-    const int offset = 3;
+    const int offset = 3; // 偏移量
 };
 
 #endif // CAESARCIPHER_H

@@ -33,6 +33,7 @@ private:
     Ui::Widget *ui;
 
     void showMessage(QString title,QString content);
+    // 用于弹窗提示操作错误
 
     CaesarCipher c;
     PlayfairCipher p;
@@ -40,11 +41,11 @@ private:
 
 private slots:
 
-    void copyText();
-    void loadFile();
-    void encrypt();
-    void decrypt();
-    void about();
+    void copyText(); // 复制文本，原文或者密文
+    void loadFile(); // 加载文件内容
+    void encrypt(); // 加密
+    void decrypt(); // 解密
+    void about(); // 关于本程序
 };
 
 #endif // WIDGET_H

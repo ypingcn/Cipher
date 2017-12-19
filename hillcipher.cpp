@@ -4,6 +4,7 @@ bool HillCipher::setKey(int k[N][N])
 {
     Matrix tmp = Matrix(k),rev;
 
+    // 如果矩阵存在逆矩阵（已经赋值给 rev ），则设置加密矩阵和解密矩阵
     if( tmp.inverse(rev) )
     {
         encryptKey = Matrix(k);
@@ -24,6 +25,8 @@ bool HillCipher::encrypt(std::string plain, std::string &cipher)
     int len = plain.size();
 
     std::vector<std::vector<int>> v;
+
+    // 每三个分一组，不够则补充 x
     for(int i = 0 ; i<len; )
     {
         std::string sub = plain.substr(i,3);
@@ -48,7 +51,9 @@ bool HillCipher::encrypt(std::string plain, std::string &cipher)
     for(int i = 0 ;i<vlen;i++)
     {
         std::vector<int> tmp = v[i];
+        // 矩阵乘法
         std::vector<int> r = encryptKey * tmp;
+        // 将数字转换成相应的字母
         result.append(alphabet[r[0]]+alphabet[r[1]]+alphabet[r[2]]);
     }
 
